@@ -21,17 +21,9 @@ public class EventManager
 
 	public void unregister(Listener listener)
 	{
-		try
+		if (listeners.contains(listener))
 		{
-			if(listeners.contains(listener))
-			{
-				listeners.remove(listeners.indexOf(listener));
-			}
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
+			listeners.remove(listeners.indexOf(listener));
 		}
 	}
-
 }

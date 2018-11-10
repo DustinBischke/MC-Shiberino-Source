@@ -2,24 +2,22 @@ package me.silver.shiberino.module;
 
 import me.silver.shiberino.Shiberino;
 import me.silver.shiberino.event.Listener;
-import me.silver.shiberino.event.events.EventOnUpdate;
 import me.silver.shiberino.wrapper.Invoker;
 
 public abstract class Module implements Listener
 {
 	protected Invoker invoker = Shiberino.getInstance().getInvoker();
+	protected boolean enabled;
 
 	private String name;
 	private String description;
 	private int keyCode;
-	private boolean enabled;
 
 	public Module(String name, String description, int keyCode)
 	{
 		this.name = name;
 		this.description = description;
 		this.keyCode = keyCode;
-		this.enabled = false;
 	}
 
 	public String getName()
@@ -46,7 +44,7 @@ public abstract class Module implements Listener
 
 	public abstract void onDisable();
 
-	public void onUpdate(EventOnUpdate event) {}
+	public void onUpdate() {}
 
 	public void toggle()
 	{

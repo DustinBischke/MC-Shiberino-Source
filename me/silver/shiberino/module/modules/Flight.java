@@ -3,7 +3,6 @@ package me.silver.shiberino.module.modules;
 import org.lwjgl.input.Keyboard;
 
 import me.silver.shiberino.Shiberino;
-import me.silver.shiberino.event.events.EventOnUpdate;
 import me.silver.shiberino.module.Module;
 
 public class Flight extends Module
@@ -28,7 +27,7 @@ public class Flight extends Module
 	}
 
 	@Override
-	public void onUpdate(EventOnUpdate event)
+	public void onUpdate()
 	{
 		invoker.setMotionY(0.0F);
 
