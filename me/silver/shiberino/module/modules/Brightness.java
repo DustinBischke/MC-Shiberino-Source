@@ -7,24 +7,40 @@ import me.silver.shiberino.module.Module;
 
 public class Brightness extends Module
 {
-	private float gamma = 10.0F;
-	private float previousGamma;
+	private float highGamma = 12.0F;
+	private float lowGamma = 1.0F;
+	private float fade = 0.5F;
 
 	public Brightness()
 	{
-		super("Brightness", "Raises Game Brightness", Keyboard.KEY_C);
+		super("Brightness", "Increases Brightness", Keyboard.KEY_C);
+		Shiberino.getInstance().getEventManager().register(this);
 	}
 
 	@Override
-	public void onEnable()
-	{
-		previousGamma = invoker.getGammaSetting();
-		invoker.setGammaSetting(gamma);
-	}
+	public void onEnable() {}
 
 	@Override
-	public void onDisable()
+	public void onDisable() {}
+
+	@Override
+	public void onUpdate()
 	{
-		invoker.setGammaSetting(previousGamma);
+		float gammaSetting = invoker.getGammaSetting();
+
+		if (enabled)
+		{
+			if (gammaSetting < highGamma)
+			{
+				invoker.setGammaSetting(gammaSetting + fade);
+			}
+		}
+		else
+		{
+			if (gammaSetting > lowGamma)
+			{
+				invoker.setGammaSetting(gammaSetting - fade);
+			}
+		}
 	}
 }
