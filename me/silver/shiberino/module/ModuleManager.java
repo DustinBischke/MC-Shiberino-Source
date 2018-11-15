@@ -13,6 +13,7 @@ public class ModuleManager
 		modules.add(new Brightness());
 		modules.add(new Flight());
 		modules.add(new NoFall());
+		modules.add(new Sprint());
 	}
 
 	public ArrayList<Module> getModules()
