@@ -17,13 +17,13 @@ public class Flight extends Module
 	@Override
 	public void onEnable()
 	{
-		Shiberino.getInstance().getEventManager().register(this);
+		Shiberino.getInstance().getEventManager().registerUpdateListener(this);
 	}
 
 	@Override
 	public void onDisable()
 	{
-		Shiberino.getInstance().getEventManager().unregister(this);
+		Shiberino.getInstance().getEventManager().unregisterUpdateListener(this);
 	}
 
 	@Override

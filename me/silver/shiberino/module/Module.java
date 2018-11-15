@@ -18,6 +18,7 @@ public abstract class Module implements Listener
 		this.name = name;
 		this.description = description;
 		this.keyCode = keyCode;
+		Shiberino.getInstance().getEventManager().registerModuleListener(this);
 	}
 
 	public String getName()
@@ -45,6 +46,14 @@ public abstract class Module implements Listener
 	public abstract void onDisable();
 
 	public void onUpdate() {}
+
+	public void onKeyPress(int keyCode)
+	{
+		if (keyCode == this.keyCode)
+		{
+			toggle();
+		}
+	}
 
 	public void toggle()
 	{

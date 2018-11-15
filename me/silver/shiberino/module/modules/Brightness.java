@@ -14,7 +14,7 @@ public class Brightness extends Module
 	public Brightness()
 	{
 		super("Brightness", "Increases Brightness", Keyboard.KEY_C);
-		Shiberino.getInstance().getEventManager().register(this);
+		Shiberino.getInstance().getEventManager().registerUpdateListener(this);
 	}
 
 	@Override

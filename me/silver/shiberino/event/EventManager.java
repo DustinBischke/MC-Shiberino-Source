@@ -4,26 +4,48 @@ import java.util.ArrayList;
 
 public class EventManager
 {
-	private ArrayList<Listener> listeners = new ArrayList<Listener>();
+	private ArrayList<Listener> moduleListeners = new ArrayList<Listener>();
+	private ArrayList<Listener> updateListeners = new ArrayList<Listener>();
 
-	public ArrayList<Listener> getListeners()
+	public ArrayList<Listener> getModuleListeners()
 	{
-		return listeners;
+		return moduleListeners;
 	}
 
-	public void register(Listener listener)
+	public ArrayList<Listener> getUpdateListeners()
 	{
-		if (!listeners.contains(listener))
+		return updateListeners;
+	}
+
+	public void registerModuleListener(Listener listener)
+	{
+		if (!moduleListeners.contains(listener))
 		{
-			listeners.add(listener);
+			moduleListeners.add(listener);
 		}
 	}
 
-	public void unregister(Listener listener)
+	public void unregisterModuleListener(Listener listener)
 	{
-		if (listeners.contains(listener))
+		if (moduleListeners.contains(listener))
 		{
-			listeners.remove(listeners.indexOf(listener));
+			moduleListeners.remove(moduleListeners.indexOf(listener));
+		}
+	}
+
+	public void registerUpdateListener(Listener listener)
+	{
+		if (!updateListeners.contains(listener))
+		{
+			updateListeners.add(listener);
+		}
+	}
+
+	public void unregisterUpdateListener(Listener listener)
+	{
+		if (updateListeners.contains(listener))
+		{
+			updateListeners.remove(updateListeners.indexOf(listener));
 		}
 	}
 }

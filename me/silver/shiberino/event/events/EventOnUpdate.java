@@ -17,7 +17,7 @@ public class EventOnUpdate implements Event
 	@Override
 	public void onEvent()
 	{
-		for (Listener listener : Shiberino.getInstance().getEventManager().getListeners())
+		for (Listener listener : Shiberino.getInstance().getEventManager().getUpdateListeners())
 		{
 			if (listener instanceof Listener)
 			{

@@ -5,4 +5,6 @@ import me.silver.shiberino.event.events.EventOnUpdate;
 public interface Listener
 {
 	void onUpdate();
+
+	void onKeyPress(int keyCode);
 }

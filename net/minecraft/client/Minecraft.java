@@ -14,8 +14,11 @@ import com.mojang.authlib.minecraft.MinecraftSessionService;
 import com.mojang.authlib.properties.PropertyMap;
 import com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService;
 
+// Shiberino Imports
 import me.silver.shiberino.Shiberino;
+import me.silver.shiberino.event.events.EventKeyPress;
 import me.silver.shiberino.hooks.HookEntityPlayerSP;
+import me.silver.shiberino.hooks.HookGuiIngame;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -301,7 +304,8 @@ public class Minecraft implements IThreadListener, ISnooperInfo {
 
 	/** Instance of IntegratedServer. */
 	private IntegratedServer theIntegratedServer;
-	public GuiIngame ingameGUI;
+	// Shiberino - Previously GuiIngame
+	public HookGuiIngame ingameGUI;
 
 	/** Skip render world */
 	public boolean skipRenderWorld;
@@ -594,7 +598,8 @@ public class Minecraft implements IThreadListener, ISnooperInfo {
 		GlStateManager.viewport(0, 0, this.displayWidth, this.displayHeight);
 		this.effectRenderer = new ParticleManager(this.world, this.renderEngine);
 		this.checkGLError("Post startup");
-		this.ingameGUI = new GuiIngame(this);
+		//Shiberino - Previously GuiIngame
+		this.ingameGUI = new HookGuiIngame(this);
 
 		if (this.serverName != null) {
 			this.displayGuiScreen(new GuiConnecting(new GuiMainMenu(), this, this.serverName, this.serverPort));
@@ -1839,7 +1844,8 @@ public class Minecraft implements IThreadListener, ISnooperInfo {
 
 			if (flag) {
 				// Shiberino - Key Pressed
-				Shiberino.getInstance().getModuleManager().onKeyPressed(i);
+				final EventKeyPress eventKeyPress = new EventKeyPress(Keyboard.getEventKey());
+				eventKeyPress.onEvent();
 
 				if (i == 62 && this.entityRenderer != null) {
 					this.entityRenderer.switchUseShader();

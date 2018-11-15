@@ -18,16 +18,4 @@ public class ModuleManager
 	{
 		return modules;
 	}
-
-	public void onKeyPressed(int keyCode)
-	{
-		for (Module module : modules)
-		{
-			if (module.getKeyCode() == keyCode)
-			{
-				module.toggle();
-				break;
-			}
-		}
-	}
 }
