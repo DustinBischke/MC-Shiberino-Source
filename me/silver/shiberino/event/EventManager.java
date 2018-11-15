@@ -17,7 +17,7 @@ public class EventManager
 		return updateListeners;
 	}
 
-	public void registerModuleListener(Listener listener)
+	public void addModuleListener(Listener listener)
 	{
 		if (!moduleListeners.contains(listener))
 		{
@@ -25,7 +25,7 @@ public class EventManager
 		}
 	}
 
-	public void unregisterModuleListener(Listener listener)
+	public void removeModuleListener(Listener listener)
 	{
 		if (moduleListeners.contains(listener))
 		{
@@ -33,7 +33,7 @@ public class EventManager
 		}
 	}
 
-	public void registerUpdateListener(Listener listener)
+	public void addUpdateListener(Listener listener)
 	{
 		if (!updateListeners.contains(listener))
 		{
@@ -41,7 +41,7 @@ public class EventManager
 		}
 	}
 
-	public void unregisterUpdateListener(Listener listener)
+	public void removeUpdateListener(Listener listener)
 	{
 		if (updateListeners.contains(listener))
 		{

@@ -15,18 +15,6 @@ public class NoFall extends Module
 	}
 
 	@Override
-	public void onEnable()
-	{
-		Shiberino.getInstance().getEventManager().registerUpdateListener(this);
-	}
-
-	@Override
-	public void onDisable()
-	{
-		Shiberino.getInstance().getEventManager().unregisterUpdateListener(this);
-	}
-
-	@Override
 	public void onPreMotion()
 	{
 		onGround = invoker.getOnGround();

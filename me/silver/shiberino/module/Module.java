@@ -1,11 +1,13 @@
 package me.silver.shiberino.module;
 
 import me.silver.shiberino.Shiberino;
+import me.silver.shiberino.event.EventManager;
 import me.silver.shiberino.event.Listener;
 import me.silver.shiberino.wrapper.Invoker;
 
-public abstract class Module implements Listener
+public class Module implements Listener
 {
+	protected EventManager eventManager = Shiberino.getInstance().getEventManager();
 	protected Invoker invoker = Shiberino.getInstance().getInvoker();
 	protected boolean enabled;
 
@@ -18,7 +20,7 @@ public abstract class Module implements Listener
 		this.name = name;
 		this.description = description;
 		this.keyCode = keyCode;
-		Shiberino.getInstance().getEventManager().registerModuleListener(this);
+		eventManager.addModuleListener(this);
 	}
 
 	public String getName()
@@ -41,9 +43,15 @@ public abstract class Module implements Listener
 		return enabled;
 	}
 
-	public abstract void onEnable();
+	public void onEnable()
+	{
+		eventManager.addUpdateListener(this);
+	}
 
-	public abstract void onDisable();
+	public void onDisable()
+	{
+		eventManager.removeUpdateListener(this);
+	}
 
 	public void onUpdate() {}
 

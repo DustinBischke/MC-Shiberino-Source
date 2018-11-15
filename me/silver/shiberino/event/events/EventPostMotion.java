@@ -21,7 +21,7 @@ public class EventPostMotion implements Event
 		{
 			if (listener instanceof Listener)
 			{
-				Listener module = (Listener) listener;
+				Listener module = listener;
 				module.onPostMotion();
 			}
 		}

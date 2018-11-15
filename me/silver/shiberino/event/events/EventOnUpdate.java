@@ -21,7 +21,7 @@ public class EventOnUpdate implements Event
 		{
 			if (listener instanceof Listener)
 			{
-				Listener module = (Listener) listener;
+				Listener module = listener;
 				module.onUpdate();
 			}
 		}

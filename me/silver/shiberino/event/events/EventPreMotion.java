@@ -21,7 +21,7 @@ public class EventPreMotion implements Event
 		{
 			if (listener instanceof Listener)
 			{
-				Listener module = (Listener) listener;
+				Listener module = listener;
 				module.onPreMotion();
 			}
 		}
