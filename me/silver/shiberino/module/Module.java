@@ -47,6 +47,10 @@ public abstract class Module implements Listener
 
 	public void onUpdate() {}
 
+	public void onPreMotion() {}
+
+	public void onPostMotion() {}
+
 	public void onKeyPress(int keyCode)
 	{
 		if (keyCode == this.keyCode)

@@ -6,5 +6,9 @@ public interface Listener
 {
 	void onUpdate();
 
+	void onPreMotion();
+
+	void onPostMotion();
+
 	void onKeyPress(int keyCode);
 }

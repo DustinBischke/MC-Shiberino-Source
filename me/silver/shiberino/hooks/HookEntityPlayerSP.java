@@ -1,6 +1,8 @@
 package me.silver.shiberino.hooks;
 
 import me.silver.shiberino.event.events.EventOnUpdate;
+import me.silver.shiberino.event.events.EventPostMotion;
+import me.silver.shiberino.event.events.EventPreMotion;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.network.NetHandlerPlayClient;
@@ -23,5 +25,17 @@ public class HookEntityPlayerSP extends EntityPlayerSP
 		eventOnUpdate.onEvent();
 
 		super.onUpdate();
+	}
+
+	@Override
+	public void onUpdateWalkingPlayer()
+	{
+		final EventPreMotion eventPre = new EventPreMotion(this);
+		eventPre.onEvent();
+
+		super.onUpdateWalkingPlayer();
+
+		final EventPostMotion eventPost = new EventPostMotion(this);
+		eventPost.onEvent();
 	}
 }

@@ -12,6 +12,7 @@ public class ModuleManager
 	{
 		modules.add(new Brightness());
 		modules.add(new Flight());
+		modules.add(new NoFall());
 	}
 
 	public ArrayList<Module> getModules()
