@@ -16,6 +16,11 @@ public class Invoker
 		return wrapper.getMinecraft().displayHeight;
 	}
 
+	public void loadRenderers()
+	{
+		wrapper.getMinecraft().renderGlobal.loadRenderers();
+	}
+
 	public int getPosX()
 	{
 		return wrapper.getPlayer().getPosition().getX();
@@ -61,6 +66,21 @@ public class Invoker
 		wrapper.getPlayer().motionZ = z;
 	}
 
+	public void moveForward()
+	{
+		wrapper.getPlayer().movementInput.sneak = true;
+	}
+
+	public float getStepHeight()
+	{
+		return wrapper.getPlayer().stepHeight;
+	}
+
+	public void setStepHeight(float stepHeight)
+	{
+		wrapper.getPlayer().stepHeight = stepHeight;
+	}
+
 	public boolean getOnGround()
 	{
 		return wrapper.getPlayer().onGround;
@@ -71,9 +91,9 @@ public class Invoker
 		wrapper.getPlayer().onGround = onGround;
 	}
 
-	public void setSneaking(boolean sneaking)
+	public boolean isSneaking()
 	{
-		wrapper.getPlayer().setSneaking(sneaking);
+		return wrapper.getPlayer().isSneaking();
 	}
 
 	public void setSprinting(boolean sprinting)
@@ -91,13 +111,28 @@ public class Invoker
 		wrapper.getGameSettings().gammaSetting = gamma;
 	}
 
+	public void setForwardKeyPressed(boolean pressed)
+	{
+		wrapper.getGameSettings().keyBindForward.setPressed(pressed);
+	}
+
 	public int getJumpKeyCode()
 	{
 		return wrapper.getGameSettings().keyBindJump.getKeyCode();
 	}
 
+	public void setJumpKeyPressed(boolean pressed)
+	{
+		wrapper.getGameSettings().keyBindJump.setPressed(pressed);
+	}
+
 	public int getSneakKeyCode()
 	{
 		return wrapper.getGameSettings().keyBindSneak.getKeyCode();
+	}
+
+	public void setSneakKeyPressed(boolean pressed)
+	{
+		wrapper.getGameSettings().keyBindSneak.setPressed(pressed);
 	}
 }
