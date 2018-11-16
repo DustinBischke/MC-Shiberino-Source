@@ -66,11 +66,6 @@ public class Invoker
 		wrapper.getPlayer().motionZ = z;
 	}
 
-	public void moveForward()
-	{
-		wrapper.getPlayer().movementInput.sneak = true;
-	}
-
 	public float getStepHeight()
 	{
 		return wrapper.getPlayer().stepHeight;
@@ -134,5 +129,15 @@ public class Invoker
 	public void setSneakKeyPressed(boolean pressed)
 	{
 		wrapper.getGameSettings().keyBindSneak.setPressed(pressed);
+	}
+
+	public int getAmbientOcclusion()
+	{
+		return wrapper.getGameSettings().ambientOcclusion;
+	}
+
+	public void setAmbientOcclusion(int ambientOcclusion)
+	{
+		wrapper.getGameSettings().ambientOcclusion = ambientOcclusion;
 	}
 }

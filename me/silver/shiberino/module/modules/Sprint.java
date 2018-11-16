@@ -9,7 +9,7 @@ public class Sprint extends Module
 {
 	public Sprint()
 	{
-		super("Sprint", "Makes You Sprint", Keyboard.KEY_X);
+		super("Sprint", "Makes You Sprint", Keyboard.KEY_G);
 	}
 
 	@Override

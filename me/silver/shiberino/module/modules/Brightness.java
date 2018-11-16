@@ -4,12 +4,13 @@ import org.lwjgl.input.Keyboard;
 
 import me.silver.shiberino.Shiberino;
 import me.silver.shiberino.module.Module;
+import me.silver.shiberino.xray.XrayManager;
 
 public class Brightness extends Module
 {
 	private float highGamma = 12.0F;
 	private float lowGamma = 1.0F;
-	private float fade = 0.5F;
+	private float fade = 1.0F;
 
 	public Brightness()
 	{
@@ -28,7 +29,7 @@ public class Brightness extends Module
 	{
 		float gammaSetting = invoker.getGammaSetting();
 
-		if (enabled)
+		if (enabled || Shiberino.getInstance().getXrayManager().isXrayEnabled())
 		{
 			if (gammaSetting < highGamma)
 			{

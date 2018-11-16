@@ -6,17 +6,19 @@ import me.silver.shiberino.event.EventManager;
 import me.silver.shiberino.module.ModuleManager;
 import me.silver.shiberino.wrapper.Invoker;
 import me.silver.shiberino.wrapper.Wrapper;
+import me.silver.shiberino.xray.XrayManager;
 
 public class Shiberino
 {
 	private static Shiberino instance;
-	private static Wrapper wrapper;
 	private static ModuleManager moduleManager;
-	private static Invoker invoker;
 	private static EventManager eventManager;
+	private static Wrapper wrapper;
+	private static Invoker invoker;
+	private static XrayManager xrayManager;
 
 	private final String name = "Shiberino";
-	private final String version = "0.1 Alpha";
+	private final String version = "v0.1";
 	private final String author = "Silver#4636";
 
 	public static Shiberino getInstance()
@@ -29,16 +31,6 @@ public class Shiberino
 		return instance;
 	}
 
-	public static Wrapper getWrapper()
-	{
-		if (wrapper == null)
-		{
-			wrapper = new Wrapper();
-		}
-
-		return wrapper;
-	}
-
 	public static ModuleManager getModuleManager()
 	{
 		if (moduleManager == null)
@@ -49,7 +41,27 @@ public class Shiberino
 		return moduleManager;
 	}
 
-	public Invoker getInvoker()
+	public static EventManager getEventManager()
+	{
+		if (eventManager == null)
+		{
+			eventManager = new EventManager();
+		}
+
+		return eventManager;
+	}
+
+	public static Wrapper getWrapper()
+	{
+		if (wrapper == null)
+		{
+			wrapper = new Wrapper();
+		}
+
+		return wrapper;
+	}
+
+	public static Invoker getInvoker()
 	{
 		if (invoker == null)
 		{
@@ -59,14 +71,14 @@ public class Shiberino
 		return invoker;
 	}
 
-	public static EventManager getEventManager()
+	public static XrayManager getXrayManager()
 	{
-		if (eventManager == null)
+		if (xrayManager == null)
 		{
-			eventManager = new EventManager();
+			xrayManager = new XrayManager();
 		}
 
-		return eventManager;
+		return xrayManager;
 	}
 
 	public String getName()
