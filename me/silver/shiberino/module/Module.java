@@ -3,6 +3,7 @@ package me.silver.shiberino.module;
 import me.silver.shiberino.Shiberino;
 import me.silver.shiberino.event.EventManager;
 import me.silver.shiberino.event.Listener;
+import me.silver.shiberino.module.Category;
 import me.silver.shiberino.wrapper.Invoker;
 
 public class Module implements Listener
@@ -14,12 +15,14 @@ public class Module implements Listener
 	private String name;
 	private String description;
 	private int keyCode;
+	private Category category;
 
-	public Module(String name, String description, int keyCode)
+	public Module(String name, String description, int keyCode, Category category)
 	{
 		this.name = name;
 		this.description = description;
 		this.keyCode = keyCode;
+		this.category = category;
 		eventManager.addModuleListener(this);
 	}
 
@@ -31,6 +34,11 @@ public class Module implements Listener
 	public String getDescription()
 	{
 		return description;
+	}
+
+	public Category getCategory()
+	{
+		return category;
 	}
 
 	public int getKeyCode()

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.lwjgl.input.Keyboard;
 
 import me.silver.shiberino.Shiberino;
+import me.silver.shiberino.module.Category;
 import me.silver.shiberino.module.Module;
 import me.silver.shiberino.xray.XrayManager;
 
@@ -15,7 +16,7 @@ public class Xray extends Module
 
 	public Xray()
 	{
-		super("Xray", "See Through Blocks", Keyboard.KEY_X);
+		super("Xray", "See Through Blocks", Keyboard.KEY_X, Category.WORLD);
 		xrayManager.initializeBlocks();
 	}
 

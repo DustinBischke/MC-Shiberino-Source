@@ -3,15 +3,16 @@ package me.silver.shiberino.module.modules;
 import org.lwjgl.input.Keyboard;
 
 import me.silver.shiberino.Shiberino;
+import me.silver.shiberino.module.Category;
 import me.silver.shiberino.module.Module;
 
 public class NoFall extends Module
 {
-	private boolean onGround = false;
+	private boolean onGround;
 
 	public NoFall()
 	{
-		super("No Fall", "Prevents Fall Damage", Keyboard.KEY_N);
+		super("NoFall", "Prevents Fall Damage", Keyboard.KEY_N, Category.PLAYER);
 	}
 
 	@Override

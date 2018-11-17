@@ -3,6 +3,7 @@ package me.silver.shiberino.module.modules;
 import org.lwjgl.input.Keyboard;
 
 import me.silver.shiberino.Shiberino;
+import me.silver.shiberino.module.Category;
 import me.silver.shiberino.module.Module;
 
 public class Flight extends Module
@@ -11,7 +12,7 @@ public class Flight extends Module
 
 	public Flight()
 	{
-		super("Flight", "Makes You Fly", Keyboard.KEY_F);
+		super("Flight", "Makes You Fly", Keyboard.KEY_F, Category.MOVEMENT);
 	}
 
 	@Override

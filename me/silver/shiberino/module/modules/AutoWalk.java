@@ -3,13 +3,14 @@ package me.silver.shiberino.module.modules;
 import org.lwjgl.input.Keyboard;
 
 import me.silver.shiberino.Shiberino;
+import me.silver.shiberino.module.Category;
 import me.silver.shiberino.module.Module;
 
 public class AutoWalk extends Module
 {
 	public AutoWalk()
 	{
-		super("AutoWalk", "Automatically Move Forward", Keyboard.KEY_V);
+		super("AutoWalk", "Automatically Move Forward", Keyboard.KEY_V, Category.MOVEMENT);
 	}
 
 	@Override

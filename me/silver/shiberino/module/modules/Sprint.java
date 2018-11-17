@@ -3,13 +3,14 @@ package me.silver.shiberino.module.modules;
 import org.lwjgl.input.Keyboard;
 
 import me.silver.shiberino.Shiberino;
+import me.silver.shiberino.module.Category;
 import me.silver.shiberino.module.Module;
 
 public class Sprint extends Module
 {
 	public Sprint()
 	{
-		super("Sprint", "Makes You Sprint", Keyboard.KEY_G);
+		super("Sprint", "Makes You Sprint", Keyboard.KEY_G, Category.MOVEMENT);
 	}
 
 	@Override
@@ -22,6 +23,9 @@ public class Sprint extends Module
 	@Override
 	public void onUpdate()
 	{
-		invoker.setSprinting(true);
+		if (!invoker.isSneaking())
+		{
+			invoker.setSprinting(true);
+		}
 	}
 }

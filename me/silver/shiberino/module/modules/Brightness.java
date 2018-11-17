@@ -3,6 +3,7 @@ package me.silver.shiberino.module.modules;
 import org.lwjgl.input.Keyboard;
 
 import me.silver.shiberino.Shiberino;
+import me.silver.shiberino.module.Category;
 import me.silver.shiberino.module.Module;
 import me.silver.shiberino.xray.XrayManager;
 
@@ -14,7 +15,7 @@ public class Brightness extends Module
 
 	public Brightness()
 	{
-		super("Brightness", "Increases Brightness", Keyboard.KEY_C);
+		super("Brightness", "Increases Brightness", Keyboard.KEY_C, Category.WORLD);
 		eventManager.addUpdateListener(this);
 	}
 
