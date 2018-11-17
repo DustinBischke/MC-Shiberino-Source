@@ -6,13 +6,14 @@ import me.silver.shiberino.module.modules.*;
 
 public class ModuleManager
 {
-	private static ArrayList<Module> modules = new ArrayList<Module>();
+	private ArrayList<Module> modules = new ArrayList<Module>();
 
 	public void instantiateModules()
 	{
 		modules.add(new AutoJump());
 		modules.add(new AutoWalk());
 		modules.add(new Brightness());
+		modules.add(new ClickGuiModule());
 		modules.add(new Flight());
 		modules.add(new NoFall());
 		modules.add(new Sneak());

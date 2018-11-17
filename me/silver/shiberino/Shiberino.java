@@ -3,6 +3,7 @@ package me.silver.shiberino;
 import org.lwjgl.opengl.Display;
 
 import me.silver.shiberino.event.EventManager;
+import me.silver.shiberino.gui.ClickGui;
 import me.silver.shiberino.module.ModuleManager;
 import me.silver.shiberino.wrapper.Invoker;
 import me.silver.shiberino.wrapper.Wrapper;
@@ -13,6 +14,7 @@ public class Shiberino
 	private static Shiberino instance;
 	private static ModuleManager moduleManager;
 	private static EventManager eventManager;
+	private static ClickGui clickGui;
 	private static Wrapper wrapper;
 	private static Invoker invoker;
 	private static XrayManager xrayManager;
@@ -49,6 +51,16 @@ public class Shiberino
 		}
 
 		return eventManager;
+	}
+
+	public static ClickGui getClickGui()
+	{
+		if (clickGui == null)
+		{
+			clickGui = new ClickGui();
+		}
+
+		return clickGui;
 	}
 
 	public static Wrapper getWrapper()

@@ -1,10 +1,17 @@
 package me.silver.shiberino.wrapper;
 
 import me.silver.shiberino.Shiberino;
+import net.minecraft.client.gui.FontRenderer;
+import net.minecraft.client.gui.GuiScreen;
 
 public class Invoker
 {
 	private Wrapper wrapper = Shiberino.getInstance().getWrapper();
+
+	public void displayScreen(GuiScreen screen)
+	{
+		wrapper.getMinecraft().displayGuiScreen(screen);
+	}
 
 	public int getDisplayWidth()
 	{
@@ -19,6 +26,11 @@ public class Invoker
 	public void loadRenderers()
 	{
 		wrapper.getMinecraft().renderGlobal.loadRenderers();
+	}
+
+	public FontRenderer getFontRenderer()
+	{
+		return wrapper.getMinecraft().fontRendererObj;
 	}
 
 	public int getPosX()
@@ -94,6 +106,16 @@ public class Invoker
 	public void setSprinting(boolean sprinting)
 	{
 		wrapper.getPlayer().setSprinting(sprinting);
+	}
+
+	public boolean isDead()
+	{
+		return wrapper.getPlayer().isDead;
+	}
+
+	public void respawn()
+	{
+		wrapper.getPlayer().respawnPlayer();
 	}
 
 	public float getGammaSetting()
