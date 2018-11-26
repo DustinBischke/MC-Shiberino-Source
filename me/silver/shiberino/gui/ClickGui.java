@@ -14,7 +14,7 @@ import net.minecraft.client.gui.GuiScreen;
 public class ClickGui extends GuiScreen
 {
 	private ModuleManager moduleManager = Shiberino.getInstance().getModuleManager();
-	private static ArrayList<CategoryPanel> panels = new ArrayList<>();
+	private ArrayList<CategoryPanel> panels = new ArrayList<>();
 
 	public ClickGui()
 	{
@@ -34,7 +34,7 @@ public class ClickGui extends GuiScreen
 		for (CategoryPanel panel : panels)
 		{
 			panel.render();
-			panel.move(mouseX * 2, mouseY * 2);
+			panel.onDrag(mouseX * 2, mouseY * 2);
 		}
 
 		super.drawScreen(mouseX, mouseY, partialTicks);
@@ -45,15 +45,21 @@ public class ClickGui extends GuiScreen
 	{
 		for (CategoryPanel panel : panels)
 		{
-			if(panel.isMouseOverHeader(mouseX * 2, mouseY * 2) && mouseButton == 0)
+			if (panel.getExpandButton().isMouseOver(mouseX * 2, mouseY * 2) && mouseButton == 0)
 			{
-				panel.setDragging(true);
-				panel.setOffsetX(panel.getX() - (mouseX * 2));
-				panel.setOffsetY(panel.getY() - (mouseY * 2));
+				panel.getExpandButton().onClick();
 				return;
 			}
 
-			for (ModuleButton button : panel.getModules())
+			if (panel.isMouseOverHeader(mouseX * 2, mouseY * 2) && mouseButton == 0)
+			{
+				panel.setDragging(true);
+				panel.setDragOffsetX(panel.getX() - (mouseX * 2));
+				panel.setDragOffsetY(panel.getY() - (mouseY * 2));
+				return;
+			}
+
+			for (ModuleButton button : panel.getModuleButtons())
 			{
 				if (button.isMouseOver(mouseX * 2, mouseY * 2))
 				{

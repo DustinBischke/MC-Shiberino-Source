@@ -1,27 +1,17 @@
 package me.silver.shiberino.gui.components;
 
-import org.lwjgl.opengl.GL11;
-
-import me.silver.shiberino.Shiberino;
+import me.silver.shiberino.gui.interfaces.Clickable;
 import me.silver.shiberino.module.Module;
-import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.client.gui.Gui;
 
-public class ModuleButton extends Component
+public class ModuleButton extends Button
 {
-	private FontRenderer fontRenderer = Shiberino.getInstance().getInvoker().getFontRenderer();
 	private Module module;
-	private CategoryPanel categoryPanel;
 
-	private int x = 0;
-	private int y = 0;
-	private int width = 192;
-	private int height = 22;
-
-	public ModuleButton(Module module, CategoryPanel categoryPanel)
+	public ModuleButton(Module module, int x, int y, int width, int height)
 	{
+		super(x, y, width, height);
+
 		this.module = module;
-		this.categoryPanel = categoryPanel;
 	}
 
 	public Module getModule()
@@ -29,39 +19,23 @@ public class ModuleButton extends Component
 		return module;
 	}
 
-	public void setX(int x)
-	{
-		this.x = x;
-	}
-
-	public void setY(int y)
-	{
-		this.y = y;
-	}
-
-	public boolean isMouseOver(int mouseX, int mouseY)
-	{
-		if ((mouseX >= x && mouseX <= x + width) && (mouseY >= y && mouseY <= y + height))
-		{
-			return true;
-		}
-
-		return false;
-	}
-
+	@Override
 	public void render()
 	{
-		int buttonColor;
+		super.render();
 
-		if (module.isEnabled())
-		{
-			buttonColor = color.enabledColor;
-		}
-		else
-		{
-			buttonColor = color.disabledColor;
-		}
+		fontRenderer.drawString(module.getName(), (x / 2) + 2, (y / 2) + 2, 0xffffffff);
+	}
 
-		builder.drawButton(module.getName(), x, y, x + width, y + height, buttonColor);
+	@Override
+	public void onClick()
+	{
+		module.toggle();
+	}
+
+	@Override
+	public boolean isEnabled()
+	{
+		return module.isEnabled();
 	}
 }

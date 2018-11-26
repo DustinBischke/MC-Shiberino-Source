@@ -2,21 +2,11 @@ package me.silver.shiberino.xray;
 
 import java.util.ArrayList;
 
-import me.silver.shiberino.Shiberino;
-import me.silver.shiberino.module.modules.AutoJump;
-import me.silver.shiberino.module.modules.AutoWalk;
-import me.silver.shiberino.module.modules.Brightness;
-import me.silver.shiberino.module.modules.Flight;
-import me.silver.shiberino.module.modules.NoFall;
-import me.silver.shiberino.module.modules.Sneak;
-import me.silver.shiberino.module.modules.Sprint;
-import me.silver.shiberino.module.modules.Step;
-import me.silver.shiberino.module.modules.Xray;
 import net.minecraft.block.Block;
 
 public class XrayManager
 {
-	private static ArrayList<Block> blocks = new ArrayList<>();
+	private ArrayList<Block> blocks = new ArrayList<>();
 	private boolean enabled;
 
 	public void initializeBlocks()

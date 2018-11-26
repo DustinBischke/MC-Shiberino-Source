@@ -3,12 +3,19 @@ package me.silver.shiberino.gui.components;
 import org.lwjgl.opengl.GL11;
 
 import me.silver.shiberino.Shiberino;
+import me.silver.shiberino.gui.theme.Color;
 import me.silver.shiberino.wrapper.Invoker;
 
-public class CoordinatePanel extends Component
+public class CoordinatePanel extends Panel
 {
 	private Invoker invoker = Shiberino.getInstance().getInvoker();
 
+	public CoordinatePanel()
+	{
+		super(0, 32, 0, 62);
+	}
+
+	@Override
 	public void render()
 	{
 		String posX = "X: " + Integer.toString(invoker.getPosX());
@@ -19,11 +26,11 @@ public class CoordinatePanel extends Component
 		int widthZ = fontRenderer.getStringWidth(posZ);
 		int max = Math.max(Math.max(widthX, widthY), widthZ);
 
-		GL11.glScalef(0.5f, 0.5f, 0.5f);
-		builder.drawPanel(0, 32, (max * 2) + 6, 94);
-		GL11.glScalef(2.0f, 2.0f, 2.0f);
-		fontRenderer.drawString(posX, 2, 18, color.textColor);
-		fontRenderer.drawString(posY, 2, 28, color.textColor);
-		fontRenderer.drawString(posZ, 2, 38, color.textColor);
+		super.setWidth((max * 2) + 6);
+		super.render();
+
+		fontRenderer.drawString(posX, 2, 18, Color.textColor);
+		fontRenderer.drawString(posY, 2, 28, Color.textColor);
+		fontRenderer.drawString(posZ, 2, 38, Color.textColor);
 	}
 }
