@@ -3,7 +3,6 @@ package me.silver.shiberino.gui.components;
 import org.lwjgl.opengl.GL11;
 
 import me.silver.shiberino.gui.interfaces.Clickable;
-import me.silver.shiberino.gui.theme.Color;
 
 public abstract class Button extends Component implements Clickable
 {
@@ -21,11 +20,11 @@ public abstract class Button extends Component implements Clickable
 
 		if (isEnabled())
 		{
-			color = Color.enabledColor;
+			color = theme.getEnabledColor();
 		}
 		else
 		{
-			color = Color.disabledColor;
+			color = theme.getDisabledColor();
 		}
 
 		GL11.glScalef(0.5f, 0.5f, 0.5f);

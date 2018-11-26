@@ -24,7 +24,7 @@ public class ModuleButton extends Button
 	{
 		super.render();
 
-		fontRenderer.drawString(module.getName(), (x / 2) + 2, (y / 2) + 2, 0xffffffff);
+		fontRenderer.drawString(module.getName(), (x / 2) + 2, (y / 2) + 2, theme.getTextColor());
 	}
 
 	@Override

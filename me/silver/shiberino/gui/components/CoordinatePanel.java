@@ -3,7 +3,6 @@ package me.silver.shiberino.gui.components;
 import org.lwjgl.opengl.GL11;
 
 import me.silver.shiberino.Shiberino;
-import me.silver.shiberino.gui.theme.Color;
 import me.silver.shiberino.wrapper.Invoker;
 
 public class CoordinatePanel extends Panel
@@ -29,8 +28,8 @@ public class CoordinatePanel extends Panel
 		super.setWidth((max * 2) + 6);
 		super.render();
 
-		fontRenderer.drawString(posX, 2, 18, Color.textColor);
-		fontRenderer.drawString(posY, 2, 28, Color.textColor);
-		fontRenderer.drawString(posZ, 2, 38, Color.textColor);
+		fontRenderer.drawString(posX, 2, 18, theme.getTextColor());
+		fontRenderer.drawString(posY, 2, 28, theme.getTextColor());
+		fontRenderer.drawString(posZ, 2, 38, theme.getTextColor());
 	}
 }

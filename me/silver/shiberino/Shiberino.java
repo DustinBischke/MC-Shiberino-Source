@@ -4,6 +4,7 @@ import org.lwjgl.opengl.Display;
 
 import me.silver.shiberino.event.EventManager;
 import me.silver.shiberino.gui.ClickGui;
+import me.silver.shiberino.gui.theme.ThemeManager;
 import me.silver.shiberino.module.ModuleManager;
 import me.silver.shiberino.wrapper.Invoker;
 import me.silver.shiberino.wrapper.Wrapper;
@@ -15,6 +16,7 @@ public class Shiberino
 	private static ModuleManager moduleManager;
 	private static EventManager eventManager;
 	private static ClickGui clickGui;
+	private static ThemeManager themeManager;
 	private static Wrapper wrapper;
 	private static Invoker invoker;
 	private static XrayManager xrayManager;
@@ -61,6 +63,16 @@ public class Shiberino
 		}
 
 		return clickGui;
+	}
+
+	public static ThemeManager getThemeManager()
+	{
+		if (themeManager == null)
+		{
+			themeManager = new ThemeManager();
+		}
+
+		return themeManager;
 	}
 
 	public static Wrapper getWrapper()
@@ -112,5 +124,6 @@ public class Shiberino
 	{
 		Display.setTitle(name + " Version " + version);
 		getModuleManager().instantiateModules();
+		getThemeManager().initializeThemes();
 	}
 }

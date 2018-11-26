@@ -1,12 +1,14 @@
 package me.silver.shiberino.gui.components;
 
 import me.silver.shiberino.Shiberino;
+import me.silver.shiberino.gui.theme.Theme;
 import net.minecraft.client.gui.FontRenderer;
 
 public abstract class Component
 {
 	protected Builder builder = new Builder();
 	protected FontRenderer fontRenderer = Shiberino.getInstance().getInvoker().getFontRenderer();
+	protected Theme theme = Shiberino.getThemeManager().getActiveTheme();
 	protected int x;
 	protected int y;
 	protected int width;

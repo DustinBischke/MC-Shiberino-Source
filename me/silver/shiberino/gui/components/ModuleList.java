@@ -1,7 +1,7 @@
 package me.silver.shiberino.gui.components;
 
 import me.silver.shiberino.Shiberino;
-import me.silver.shiberino.gui.theme.Color;
+import me.silver.shiberino.gui.theme.Theme;
 import me.silver.shiberino.module.Module;
 import me.silver.shiberino.module.ModuleManager;
 import me.silver.shiberino.wrapper.Invoker;
@@ -12,6 +12,7 @@ public class ModuleList
 	private FontRenderer fontRenderer = Shiberino.getInstance().getInvoker().getFontRenderer();
 	private Invoker invoker = Shiberino.getInstance().getInvoker();
 	private ModuleManager moduleManager = Shiberino.getInstance().getModuleManager();
+	private Theme theme = Shiberino.getInstance().getThemeManager().getActiveTheme();
 
 	public void render()
 	{
@@ -24,7 +25,7 @@ public class ModuleList
 			{
 				String name = module.getName();
 				int width = fontRenderer.getStringWidth(name);
-				fontRenderer.drawString(module.getName(), displayWidth - width - 1, 2 + (10 * count), Color.textColor);
+				fontRenderer.drawString(module.getName(), displayWidth - width - 1, 2 + (10 * count), theme.getTextColor());
 				count += 1;
 			}
 		}

@@ -1,7 +1,6 @@
 package me.silver.shiberino.gui.components;
 
 import me.silver.shiberino.Shiberino;
-import me.silver.shiberino.gui.theme.Color;
 
 public class TitlePanel extends Panel
 {
@@ -20,6 +19,6 @@ public class TitlePanel extends Panel
 	{
 		super.render();
 
-		fontRenderer.drawString(title, 2, 2, Color.textColor);
+		fontRenderer.drawString(title, 2, 2, theme.getTextColor());
 	}
 }

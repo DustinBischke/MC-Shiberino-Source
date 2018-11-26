@@ -6,7 +6,6 @@ import org.lwjgl.opengl.GL11;
 
 import me.silver.shiberino.Shiberino;
 import me.silver.shiberino.gui.interfaces.Draggable;
-import me.silver.shiberino.gui.theme.Color;
 import me.silver.shiberino.module.Category;
 import me.silver.shiberino.module.Module;
 import net.minecraft.client.gui.Gui;
@@ -67,9 +66,9 @@ public class CategoryPanel extends Panel implements Draggable
 		super.render();
 
 		GL11.glScalef(0.5f, 0.5f, 0.5f);
-		Gui.drawRect(x, y + headerHeight, x + width, y + headerHeight + 1, Color.borderColor);
+		Gui.drawRect(x, y + headerHeight, x + width, y + headerHeight + 1, theme.getBorderColor());
 		GL11.glScalef(2.0f, 2.0f, 2.0f);
-		fontRenderer.drawString(category.name(), (x / 2) + 2, (y / 2) + 2, Color.textColor);
+		fontRenderer.drawString(category.name(), (x / 2) + 2, (y / 2) + 2, theme.getTextColor());
 
 		expandButton.setX((x + width - padding) - expandButton.getWidth());
 		expandButton.setY(y + padding);
