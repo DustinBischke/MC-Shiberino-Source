@@ -8,9 +8,9 @@ public class Panel extends Component
 {
 	private Builder builder = new Builder();
 
-	public Panel(int x, int y, int x2, int y2)
+	public Panel(int x, int y, int width, int height)
 	{
-		super(x, y, x2, y2);
+		super(x, y, width, height);
 	}
 
 	@Override

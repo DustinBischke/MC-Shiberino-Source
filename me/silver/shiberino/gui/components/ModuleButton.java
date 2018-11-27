@@ -6,12 +6,14 @@ import me.silver.shiberino.module.Module;
 public class ModuleButton extends Button
 {
 	private Module module;
+	private int textWidth;
 
 	public ModuleButton(Module module, int x, int y, int width, int height)
 	{
 		super(x, y, width, height);
 
 		this.module = module;
+		textWidth = fontRenderer.getStringWidth(module.getName());
 	}
 
 	public Module getModule()
@@ -24,7 +26,7 @@ public class ModuleButton extends Button
 	{
 		super.render();
 
-		fontRenderer.drawString(module.getName(), (x / 2) + 2, (y / 2) + 2, theme.getTextColor());
+		fontRenderer.drawString(module.getName(), (((x + (x + width)) / 2) / 2) - ((textWidth / 2)) + 2, (y / 2) + 2, theme.getTextColor());
 	}
 
 	@Override

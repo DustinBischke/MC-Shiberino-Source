@@ -12,6 +12,7 @@ public class ThemeManager
 	public void initializeThemes()
 	{
 		themes.add(new Carbon());
+		themes.add(new Light());
 		setActiveTheme(themes.get(0));
 	}
 

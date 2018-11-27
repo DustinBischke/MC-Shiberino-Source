@@ -25,7 +25,7 @@ public class ModuleList
 			{
 				String name = module.getName();
 				int width = fontRenderer.getStringWidth(name);
-				fontRenderer.drawString(module.getName(), displayWidth - width - 1, 2 + (10 * count), theme.getTextColor());
+				fontRenderer.drawString(module.getName(), displayWidth - width - 1, 2 + (10 * count), 0xfff7f7f7);
 				count += 1;
 			}
 		}

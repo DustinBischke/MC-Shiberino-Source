@@ -3,6 +3,8 @@ package me.silver.shiberino.gui.theme;
 public abstract class Theme
 {
 	private String name;
+	private boolean enabled;
+
 	protected int textColor;
 	protected int panelColor;
 	protected int borderColor = 0xe5080808;
@@ -23,6 +25,11 @@ public abstract class Theme
 	public String getName()
 	{
 		return name;
+	}
+
+	public boolean isEnabled()
+	{
+		return enabled;
 	}
 
 	public int getTextColor()
