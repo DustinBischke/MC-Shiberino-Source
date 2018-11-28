@@ -12,9 +12,11 @@ public class ModuleManager
 	{
 		modules.add(new AutoJump());
 		modules.add(new AutoWalk());
+		modules.add(new AutoRespawn());
 		modules.add(new Brightness());
 		modules.add(new ClickGuiModule());
 		modules.add(new Flight());
+		modules.add(new MultiJump());
 		modules.add(new NoFall());
 		modules.add(new Sneak());
 		modules.add(new Sprint());

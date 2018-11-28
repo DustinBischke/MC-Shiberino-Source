@@ -10,18 +10,12 @@ public class AutoJump extends Module
 {
 	public AutoJump()
 	{
-		super("AutoJump", "Automatically Jump", Keyboard.KEY_J, Category.MOVEMENT);
+		super("AutoJump", "Automatically Jump", Keyboard.CHAR_NONE, Category.MOVEMENT);
 	}
 
 	@Override
-	public void onEnable()
+	public void onUpdate()
 	{
 		invoker.setJumpKeyPressed(true);
-	}
-
-	@Override
-	public void onDisable()
-	{
-		invoker.setJumpKeyPressed(false);
 	}
 }

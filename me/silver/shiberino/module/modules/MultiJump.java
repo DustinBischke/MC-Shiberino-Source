@@ -6,16 +6,16 @@ import me.silver.shiberino.Shiberino;
 import me.silver.shiberino.module.Category;
 import me.silver.shiberino.module.Module;
 
-public class AutoWalk extends Module
+public class MultiJump extends Module
 {
-	public AutoWalk()
+	public MultiJump()
 	{
-		super("AutoWalk", "Automatically Move Forward", Keyboard.CHAR_NONE, Category.MOVEMENT);
+		super("MultiJump", "Allows Jumping on Air", Keyboard.CHAR_NONE, Category.MOVEMENT);
 	}
 
 	@Override
 	public void onUpdate()
 	{
-		invoker.setForwardKeyPressed(true);
+		invoker.setOnGround(true);
 	}
 }

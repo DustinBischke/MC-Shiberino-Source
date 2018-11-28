@@ -6,16 +6,16 @@ import me.silver.shiberino.Shiberino;
 import me.silver.shiberino.module.Category;
 import me.silver.shiberino.module.Module;
 
-public class AutoWalk extends Module
+public class AutoRespawn extends Module
 {
-	public AutoWalk()
+	public AutoRespawn()
 	{
-		super("AutoWalk", "Automatically Move Forward", Keyboard.CHAR_NONE, Category.MOVEMENT);
+		super("AutoRespawn", "Automatically Respawn", Keyboard.CHAR_NONE, Category.PLAYER);
 	}
 
 	@Override
 	public void onUpdate()
 	{
-		invoker.setForwardKeyPressed(true);
+		invoker.respawn();
 	}
 }
