@@ -14,6 +14,12 @@ public class AutoWalk extends Module
 	}
 
 	@Override
+	public void onDisable()
+	{
+		invoker.setForwardKeyPressed(false);
+	}
+
+	@Override
 	public void onUpdate()
 	{
 		invoker.setForwardKeyPressed(true);

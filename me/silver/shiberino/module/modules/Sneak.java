@@ -14,6 +14,12 @@ public class Sneak extends Module
 	}
 
 	@Override
+	public void onDisable()
+	{
+		invoker.setSneakKeyPressed(false);
+	}
+
+	@Override
 	public void onUpdate()
 	{
 		invoker.setSneakKeyPressed(true);

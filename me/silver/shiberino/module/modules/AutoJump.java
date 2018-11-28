@@ -14,6 +14,12 @@ public class AutoJump extends Module
 	}
 
 	@Override
+	public void onDisable()
+	{
+		invoker.setJumpKeyPressed(false);
+	}
+
+	@Override
 	public void onUpdate()
 	{
 		invoker.setJumpKeyPressed(true);
