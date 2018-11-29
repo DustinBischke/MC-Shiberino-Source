@@ -16,6 +16,7 @@ public class AutoWalk extends Module
 	@Override
 	public void onDisable()
 	{
+		eventManager.removeUpdateListener(this);
 		invoker.setForwardKeyPressed(false);
 	}
 

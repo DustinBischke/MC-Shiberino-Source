@@ -14,7 +14,6 @@ public class Step extends Module
 	public Step()
 	{
 		super("Step", "Increases Step Height", Keyboard.KEY_B, Category.MOVEMENT);
-		eventManager.addUpdateListener(this);
 	}
 
 	@Override

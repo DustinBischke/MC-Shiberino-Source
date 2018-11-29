@@ -16,6 +16,7 @@ public class AutoJump extends Module
 	@Override
 	public void onDisable()
 	{
+		eventManager.removeUpdateListener(this);
 		invoker.setJumpKeyPressed(false);
 	}
 
