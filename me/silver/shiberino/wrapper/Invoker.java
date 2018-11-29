@@ -3,6 +3,8 @@ package me.silver.shiberino.wrapper;
 import me.silver.shiberino.Shiberino;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentString;
 
 public class Invoker
 {
@@ -31,6 +33,12 @@ public class Invoker
 	public FontRenderer getFontRenderer()
 	{
 		return wrapper.getMinecraft().fontRendererObj;
+	}
+
+	public void addChatMessage(String chat)
+	{
+		Object chatComponent = new TextComponentString(chat);
+		wrapper.getMinecraft().ingameGUI.getChatGUI().printChatMessage((ITextComponent)chatComponent);
 	}
 
 	public int getPosX()

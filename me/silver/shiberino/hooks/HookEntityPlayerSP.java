@@ -1,17 +1,22 @@
 package me.silver.shiberino.hooks;
 
+import me.silver.shiberino.Shiberino;
+import me.silver.shiberino.command.CommandManager;
 import me.silver.shiberino.event.events.EventOnUpdate;
 import me.silver.shiberino.event.events.EventPostMotion;
 import me.silver.shiberino.event.events.EventPreMotion;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.network.NetHandlerPlayClient;
+import net.minecraft.network.play.client.CPacketChatMessage;
 import net.minecraft.stats.RecipeBook;
 import net.minecraft.stats.StatisticsManager;
 import net.minecraft.world.World;
 
 public class HookEntityPlayerSP extends EntityPlayerSP
 {
+	private CommandManager commandManager = Shiberino.getInstance().getCommandManager();
+
 	public HookEntityPlayerSP(Minecraft p_i47378_1_, World p_i47378_2_, NetHandlerPlayClient p_i47378_3_,
 			StatisticsManager p_i47378_4_, RecipeBook p_i47378_5_)
 	{
@@ -38,4 +43,16 @@ public class HookEntityPlayerSP extends EntityPlayerSP
 		final EventPostMotion eventPost = new EventPostMotion(this);
 		eventPost.onEvent();
 	}
+
+	@Override
+	public void sendChatMessage(String message)
+    {
+		if (message.startsWith(commandManager.getPrefix()))
+		{
+			commandManager.onCommand(message);
+			return;
+		}
+
+		super.sendChatMessage(message);
+    }
 }
