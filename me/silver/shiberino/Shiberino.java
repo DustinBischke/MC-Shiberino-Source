@@ -2,6 +2,7 @@ package me.silver.shiberino;
 
 import org.lwjgl.opengl.Display;
 
+import me.silver.shiberino.command.CommandManager;
 import me.silver.shiberino.event.EventManager;
 import me.silver.shiberino.friend.FriendManager;
 import me.silver.shiberino.gui.ClickGui;
@@ -15,6 +16,7 @@ public class Shiberino
 {
 	private static Shiberino instance;
 	private static ModuleManager moduleManager;
+	private static CommandManager commandManager;
 	private static EventManager eventManager;
 	private static FriendManager friendManager;
 	private static ClickGui clickGui;
@@ -45,6 +47,16 @@ public class Shiberino
 		}
 
 		return moduleManager;
+	}
+
+	public static CommandManager getCommandManager()
+	{
+		if (commandManager == null)
+		{
+			commandManager = new CommandManager();
+		}
+
+		return commandManager;
 	}
 
 	public static EventManager getEventManager()
@@ -135,7 +147,9 @@ public class Shiberino
 	public void start()
 	{
 		Display.setTitle(name + " Version " + version);
+
 		getModuleManager().instantiateModules();
+		getCommandManager().instantiateCommands();
 		getThemeManager().initializeThemes();
 	}
 }
