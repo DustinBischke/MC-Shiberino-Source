@@ -36,6 +36,22 @@ public class FriendManager
 		return false;
 	}
 
+	public Friend getFriend(String name)
+	{
+		if (isFriend(name))
+		{
+			for (Friend friend : friends)
+			{
+				if (friend.getName().equalsIgnoreCase(name) || friend.getAlias().equalsIgnoreCase(name))
+				{
+					return friend;
+				}
+			}
+		}
+
+		return null;
+	}
+
 	public ArrayList<Friend> getFriends()
 	{
 		return friends;

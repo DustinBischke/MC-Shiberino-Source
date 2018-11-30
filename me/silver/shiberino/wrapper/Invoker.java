@@ -37,7 +37,7 @@ public class Invoker
 
 	public void addChatMessage(String chat)
 	{
-		Object chatComponent = new TextComponentString(chat);
+		TextComponentString chatComponent = new TextComponentString(chat);
 		wrapper.getMinecraft().ingameGUI.getChatGUI().printChatMessage((ITextComponent)chatComponent);
 	}
 
