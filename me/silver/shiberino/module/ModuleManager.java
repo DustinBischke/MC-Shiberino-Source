@@ -6,7 +6,7 @@ import me.silver.shiberino.module.modules.*;
 
 public class ModuleManager
 {
-	private ArrayList<Module> modules = new ArrayList<Module>();
+	private ArrayList<Module> modules = new ArrayList<>();
 
 	public void instantiateModules()
 	{
@@ -15,6 +15,8 @@ public class ModuleManager
 		modules.add(new AutoRespawn());
 		modules.add(new Brightness());
 		modules.add(new ClickGuiModule());
+		modules.add(new Dolphin());
+		modules.add(new FastLadder());
 		modules.add(new Flight());
 		modules.add(new MultiJump());
 		modules.add(new NoFall());

@@ -116,9 +116,14 @@ public class Invoker
 		wrapper.getPlayer().setSprinting(sprinting);
 	}
 
-	public boolean isDead()
+	public boolean isOnLadder()
 	{
-		return wrapper.getPlayer().isDead;
+		return wrapper.getPlayer().isOnLadder();
+	}
+
+	public boolean isInWater()
+	{
+		return wrapper.getPlayer().isInWater();
 	}
 
 	public void respawn()
@@ -134,6 +139,11 @@ public class Invoker
 	public void setGammaSetting(float gamma)
 	{
 		wrapper.getGameSettings().gammaSetting = gamma;
+	}
+
+	public int getForwardKeyCode()
+	{
+		return wrapper.getGameSettings().keyBindForward.getKeyCode();
 	}
 
 	public void setForwardKeyPressed(boolean pressed)
