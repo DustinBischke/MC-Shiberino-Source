@@ -21,6 +21,7 @@ public class ModuleManager
 		modules.add(new MultiJump());
 		modules.add(new NoFall());
 		modules.add(new Sneak());
+		modules.add(new Spider());
 		modules.add(new Sprint());
 		modules.add(new Step());
 		modules.add(new Xray());

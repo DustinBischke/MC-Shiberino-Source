@@ -126,6 +126,16 @@ public class Invoker
 		return wrapper.getPlayer().isInWater();
 	}
 
+	public boolean isCollidedHorizontally()
+	{
+		return wrapper.getPlayer().isCollidedHorizontally;
+	}
+
+	public boolean isCollidedVertically()
+	{
+		return wrapper.getPlayer().isCollidedVertically;
+	}
+
 	public void respawn()
 	{
 		wrapper.getPlayer().respawnPlayer();
