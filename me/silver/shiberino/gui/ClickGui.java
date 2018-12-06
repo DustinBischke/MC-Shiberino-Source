@@ -59,12 +59,15 @@ public class ClickGui extends GuiScreen
 				return;
 			}
 
-			for (ModuleButton button : panel.getModuleButtons())
+			if (panel.isOpen())
 			{
-				if (button.isMouseOver(mouseX * 2, mouseY * 2))
+				for (ModuleButton button : panel.getModuleButtons())
 				{
-					button.getModule().toggle();
-					return;
+					if (button.isMouseOver(mouseX * 2, mouseY * 2))
+					{
+						button.getModule().toggle();
+						return;
+					}
 				}
 			}
 		}
