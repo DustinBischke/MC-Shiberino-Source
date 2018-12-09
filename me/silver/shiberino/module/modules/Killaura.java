@@ -60,12 +60,7 @@ public class Killaura extends Module
 
 	private boolean isWithinReach(Entity entity)
 	{
-		if (getDistanceToEntity(entity) < reach)
-		{
-			return true;
-		}
-
-		return false;
+		return getDistanceToEntity(entity) < reach;
 	}
 
 	private boolean isCloser(Entity next, Entity previous)
@@ -75,12 +70,7 @@ public class Killaura extends Module
 			return true;
 		}
 
-		if (getDistanceToEntity(next) < getDistanceToEntity(previous))
-		{
-			return true;
-		}
-
-		return false;
+		return getDistanceToEntity(next) < getDistanceToEntity(previous);
 	}
 
 	private Entity getClosestEntity()
@@ -105,12 +95,7 @@ public class Killaura extends Module
 			}
 		}
 
-		if (closestEntity != null)
-		{
-			return closestEntity;
-		}
-
-		return null;
+		return closestEntity;
 	}
 
 	private void attackEntity(Entity entity)
