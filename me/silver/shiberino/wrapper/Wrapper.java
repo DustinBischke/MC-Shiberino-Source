@@ -2,6 +2,7 @@ package me.silver.shiberino.wrapper;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
+import net.minecraft.client.multiplayer.PlayerControllerMP;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.settings.GameSettings;
 import net.minecraft.util.Session;
@@ -21,6 +22,11 @@ public class Wrapper
 	public EntityPlayerSP getPlayer()
 	{
 		return getMinecraft().player;
+	}
+
+	public PlayerControllerMP getPlayerController()
+	{
+		return getMinecraft().playerController;
 	}
 
 	public WorldClient getWorld()

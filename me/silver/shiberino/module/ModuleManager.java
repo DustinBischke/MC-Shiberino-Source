@@ -18,6 +18,7 @@ public class ModuleManager
 		modules.add(new Dolphin());
 		modules.add(new FastLadder());
 		modules.add(new Flight());
+		modules.add(new Killaura());
 		modules.add(new MultiJump());
 		modules.add(new NoFall());
 		modules.add(new Sneak());
