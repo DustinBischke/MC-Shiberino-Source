@@ -1,6 +1,7 @@
 package me.silver.shiberino.module;
 
 import me.silver.shiberino.Shiberino;
+import me.silver.shiberino.config.Config;
 import me.silver.shiberino.event.EventManager;
 import me.silver.shiberino.event.Listener;
 import me.silver.shiberino.module.Category;
@@ -8,6 +9,7 @@ import me.silver.shiberino.wrapper.Invoker;
 
 public class Module implements Listener
 {
+	protected Config config = Shiberino.getInstance().getConfig();
 	protected EventManager eventManager = Shiberino.getInstance().getEventManager();
 	protected Invoker invoker = Shiberino.getInstance().getInvoker();
 	protected boolean enabled;

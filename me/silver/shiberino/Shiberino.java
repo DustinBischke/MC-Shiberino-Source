@@ -3,6 +3,7 @@ package me.silver.shiberino;
 import org.lwjgl.opengl.Display;
 
 import me.silver.shiberino.command.CommandManager;
+import me.silver.shiberino.config.Config;
 import me.silver.shiberino.event.EventManager;
 import me.silver.shiberino.friend.FriendManager;
 import me.silver.shiberino.gui.ClickGui;
@@ -15,6 +16,7 @@ import me.silver.shiberino.xray.XrayManager;
 public class Shiberino
 {
 	private static Shiberino instance;
+	private static Config config;
 	private static ModuleManager moduleManager;
 	private static CommandManager commandManager;
 	private static EventManager eventManager;
@@ -37,6 +39,16 @@ public class Shiberino
 		}
 
 		return instance;
+	}
+
+	public static Config getConfig()
+	{
+		if (config == null)
+		{
+			config = new Config();
+		}
+
+		return config;
 	}
 
 	public static ModuleManager getModuleManager()

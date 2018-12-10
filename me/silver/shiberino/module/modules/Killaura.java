@@ -12,6 +12,9 @@ import me.silver.shiberino.wrapper.Wrapper;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.entity.player.EntityPlayer;
 
 public class Killaura extends Module
 {
@@ -21,6 +24,9 @@ public class Killaura extends Module
 	private EntityPlayerSP player;
 	private Entity target = null;
 	private float reach = 5.0f;
+	private boolean animals;
+	private boolean mobs;
+	private boolean players;
 
 	public Killaura()
 	{
@@ -58,6 +64,33 @@ public class Killaura extends Module
 		return player.getDistanceToEntity(entity);
 	}
 
+	private boolean isEntityAnimal(Entity entity)
+	{
+		return entity instanceof EntityAnimal;
+	}
+
+	private boolean isEntityMob(Entity entity)
+	{
+		return entity instanceof EntityMob;
+	}
+
+	private boolean isEntityPlayer(Entity entity)
+	{
+		return entity instanceof EntityPlayer;
+	}
+
+	private boolean isEntityFriend(Entity entity)
+	{
+		if (isEntityPlayer(entity))
+		{
+			entity = (EntityPlayer) entity;
+
+			return friendManager.isFriend(entity.getName());
+		}
+
+		return false;
+	}
+
 	private boolean isWithinReach(Entity entity)
 	{
 		return getDistanceToEntity(entity) < reach;
@@ -90,7 +123,23 @@ public class Killaura extends Module
 
 				if (isCloser(entity, closestEntity))
 				{
-					closestEntity = entity;
+					if (config.killauraAnimals && isEntityAnimal(entity))
+					{
+						closestEntity = entity;
+					}
+
+					if (config.killauraMobs && isEntityMob(entity))
+					{
+						closestEntity = entity;
+					}
+
+					if (config.killauraPlayers && isEntityPlayer(entity))
+					{
+						if (!isEntityFriend(entity))
+						{
+							closestEntity = entity;
+						}
+					}
 				}
 			}
 		}

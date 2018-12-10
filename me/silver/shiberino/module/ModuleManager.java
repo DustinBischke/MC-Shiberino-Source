@@ -19,6 +19,9 @@ public class ModuleManager
 		modules.add(new FastLadder());
 		modules.add(new Flight());
 		modules.add(new Killaura());
+		modules.add(new KillauraAnimals());
+		modules.add(new KillauraMobs());
+		modules.add(new KillauraPlayers());
 		modules.add(new MultiJump());
 		modules.add(new NoFall());
 		modules.add(new Sneak());
