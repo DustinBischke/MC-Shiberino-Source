@@ -10,6 +10,7 @@ public class ModuleManager
 
 	public void instantiateModules()
 	{
+		modules.add(new AntiWeb());
 		modules.add(new AutoJump());
 		modules.add(new AutoWalk());
 		modules.add(new AutoRespawn());

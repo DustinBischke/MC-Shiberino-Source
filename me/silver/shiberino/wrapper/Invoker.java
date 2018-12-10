@@ -126,6 +126,11 @@ public class Invoker
 		return wrapper.getPlayer().isInWater();
 	}
 
+	public void setInWeb(boolean inWeb)
+	{
+		wrapper.getPlayer().isInWeb = inWeb;
+	}
+
 	public boolean isCollidedHorizontally()
 	{
 		return wrapper.getPlayer().isCollidedHorizontally;
