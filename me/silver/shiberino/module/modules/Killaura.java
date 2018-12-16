@@ -96,6 +96,11 @@ public class Killaura extends Module
 		return getDistanceToEntity(entity) < reach;
 	}
 
+	public boolean canEntityBeSeen(Entity entity)
+	{
+		return wrapper.getPlayer().canEntityBeSeen(entity);
+	}
+
 	private boolean isCloser(Entity next, Entity previous)
 	{
 		if (previous == null)
@@ -117,6 +122,11 @@ public class Killaura extends Module
 				EntityLivingBase entity = (EntityLivingBase) e;
 
 				if (entity == player)
+				{
+					continue;
+				}
+
+				if (!canEntityBeSeen(entity))
 				{
 					continue;
 				}
